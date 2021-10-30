@@ -19,10 +19,15 @@ fn rocket() -> _ {
     rocket::custom(rocket::Config::figment()
         .merge(("port", port))
         .merge(("address", "0.0.0.0")))
-        .mount("/", routes![life_raw, life_html])
+        .mount("/", routes![home, life_raw, life_html])
 }
 
 // routes
+#[get("/")]
+fn home() -> Html<&'static str> {
+    Html(STYLES_AND_LINKS)
+}
+
 #[get("/<current>")]
 fn life_raw(current: LifeState) -> Result<LifeState, BadRequest<String>> {
     Ok(current.next_state())
