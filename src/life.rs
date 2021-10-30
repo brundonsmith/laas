@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use rocket::{request::FromParam, response::Responder};
+use rocket::{http::Header, request::FromParam, response::Responder};
 
 static AXIS_DELIM: &str = "x";
 static COORD_DELIM: &str = "~";
@@ -60,7 +60,10 @@ impl<'a> FromParam<'a> for LifeState {
 
 impl<'r,'o: 'r> Responder<'r,'o> for LifeState {
     fn respond_to(self, req: &'r rocket::Request<'_>) -> rocket::response::Result<'o> {
-        self.to_string().respond_to(req)
+        self.to_string().respond_to(req).map(|mut res| {
+            res.set_header(Header::new("Access-Control-Allow-Origin", "*"));
+            res
+        })
     }
 }
 
