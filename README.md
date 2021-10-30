@@ -30,10 +30,17 @@ returns the following state, given some "current" state. The base endpoint
 responds with a string that can be fed directly back into the API. The `/html`
 endpoint renders the grid as HTML and provides a link to the next cycle.
 
-## This is very silly!
+## FAQ
+
+### This is very silly!
 
 Yes it is!
 
-## Can I use the live version in a project?
+### Why did you make it?
+
+Because it was fun!
+
+### Can I use the live version in a project?
 
 Go for it! It's on Heroku's free tier though so no promises about reliability!
+
