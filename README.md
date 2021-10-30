@@ -21,7 +21,8 @@ for (let i = 0; i < 5; i++) {
 ```
 
 ![Screenshot](/screenshot.png)
-[https://life-as-a-service.herokuapp.com/html/-1x0~0x0~1x0](https://life-as-a-service.herokuapp.com/html/-1x0~0x0~1x0)
+
+[https://life-as-a-service.herokuapp.com/html/0x1~1x2~2x0~2x1~2x2](https://life-as-a-service.herokuapp.com/html/0x1~1x2~2x0~2x1~2x2)
 
 A Life state is represented as a series of row/column pairs separated by `~`s,
 with each row and column separated from each other by `x`s. Each endpoint 
