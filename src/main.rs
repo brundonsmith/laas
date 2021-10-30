@@ -18,7 +18,7 @@ fn rocket() -> _ {
 
     rocket::custom(rocket::Config::figment()
         .merge(("port", port))
-        .merge(("ip", "0.0.0.0")))
+        .merge(("address", "0.0.0.0")))
         .mount("/", routes![life_raw, life_html])
 }
 
