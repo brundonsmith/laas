@@ -11,7 +11,10 @@ use rocket::response::status::BadRequest;
 // entry point
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![life_raw, life_html])
+    let port: u16 = std::env::var_os("PORT").unwrap().to_str().unwrap().parse().unwrap();
+
+    rocket::custom(rocket::Config::figment().merge(("port", port)))
+        .mount("/", routes![life_raw, life_html])
 }
 
 // routes
